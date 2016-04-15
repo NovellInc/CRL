@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Int64 x:Key="/Default/Environment/SearchAndNavigation/DefaultOccurencesGroupingIndex/@EntryValue">1</s:Int64>
+	<s:String x:Key="/Default/RunConfigs/Active/@EntryValue">D060D7187731B046B5C5C9EF84B94E47</s:String>
+	<s:Boolean x:Key="/Default/RunConfigs/Config/=07EC07E3B10B494EB477AF6C437F81B9/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/RunConfigs/Config/=07EC07E3B10B494EB477AF6C437F81B9/DefaultAction/@EntryValue">run</s:String>
+	<s:String x:Key="/Default/RunConfigs/Config/=07EC07E3B10B494EB477AF6C437F81B9/Name/@EntryValue">CRL-Publication.Setup</s:String>
+	<s:String x:Key="/Default/RunConfigs/Config/=07EC07E3B10B494EB477AF6C437F81B9/ProjectGuid/@EntryValue">AA0DD7BC6B068343B1D5616AEE93EE2E</s:String>
+	<s:String x:Key="/Default/RunConfigs/Config/=07EC07E3B10B494EB477AF6C437F81B9/Type/@EntryValue">project</s:String>
+	<s:Boolean x:Key="/Default/RunConfigs/Config/=D060D7187731B046B5C5C9EF84B94E47/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/RunConfigs/Config/=D060D7187731B046B5C5C9EF84B94E47/Name/@EntryValue">CRL-Publication.Setup</s:String>
+	<s:String x:Key="/Default/RunConfigs/Config/=D060D7187731B046B5C5C9EF84B94E47/ProjectGuid/@EntryValue">AA0DD7BC6B068343B1D5616AEE93EE2E</s:String>
+	<s:String x:Key="/Default/RunConfigs/Config/=D060D7187731B046B5C5C9EF84B94E47/Type/@EntryValue">project</s:String></wpf:ResourceDictionary>

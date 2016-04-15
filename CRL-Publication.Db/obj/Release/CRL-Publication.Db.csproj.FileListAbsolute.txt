@@ -1,0 +1,10 @@
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\bin\Release\CrlModel.edmx.sql
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\bin\Release\CRL-Publication.Db.dll.config
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\bin\Release\CRL-Publication.Db.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\bin\Release\CRL-Publication.Db.pdb
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\bin\Release\EntityFramework.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\bin\Release\EntityFramework.SqlServer.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\bin\Release\EntityFramework.xml
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\bin\Release\EntityFramework.SqlServer.xml
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\obj\Release\CRL-Publication.Db.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Db\obj\Release\CRL-Publication.Db.pdb

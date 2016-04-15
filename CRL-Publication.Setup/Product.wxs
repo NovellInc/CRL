@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Variables.wxi?>
+  <!--<Upgrade Id="$(var.UpgradeCode)">
+    <UpgradeVersion OnlyDetect="no" Minimum="$(var.ProductVersionMinimum)" IncludeMinimum="yes" Maximum="$(var.ProductVersion)" IncludeMaximum="no" Property="PREVIOUSFOUND"/>
+  </Upgrade>
+  <MajorUpgrade DowngradeErrorMessage="Newer version of $(var.ProductName) already has been intalled." Schedule="afterInstallExecute"/>-->
+  
+  <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
+   
+    <Package Id="$(var.PackageCode)" InstallerVersion="300" Compressed="yes" InstallScope="perMachine" />    
+
+    <Upgrade Id="$(var.UpgradeCode)">
+      <UpgradeVersion OnlyDetect="no" Minimum="$(var.ProductVersionMinimum)" IncludeMinimum="yes" Maximum="$(var.ProductVersion)" IncludeMaximum="no" Property="PREVIOUSFOUND"/>
+    </Upgrade>
+
+    <MajorUpgrade DowngradeErrorMessage="Newer version of $(var.ProductName) is already intalled." Schedule="afterInstallExecute"/>
+    
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+          <Directory Id="CompanyNameFolder" Name="$(var.CompanyName)">
+              <Directory Id="INSTALLLOCATION" Name="$(var.ProductName)">
+                
+                <Directory Id="CLIENTFOLDER" Name="Client"/>
+                <Directory Id="SERVICEFOLDER" Name="Service">
+                  <Directory Id="DBFOLDER"/>
+                </Directory>
+                <Directory Id="CRLUPDATEFOLDER" Name="CRL Update"/>
+                
+              </Directory>
+          </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+          <Directory Id="ApplicationProgramsFolder" Name="$(var.ProductName)"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+      <Directory Id="CommonAppDataFolder"/>
+    </Directory>
+    
+    <FeatureRef Id="FeatureClient" />
+    <FeatureRef Id="FeatureService" />
+    <FeatureRef Id="FeatureCRLUpdate" />
+    
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION"/>
+    <Property Id="SERVICEPROGRAMDATA" Value="ServiceAppFolder" Secure="yes"/>
+    <Property Id="SHORTCUT_PROGRAMMENU">1</Property>
+    <Property Id="SHORTCUT_DESKTOP">1</Property>
+    <Property Id="ARPPRODUCTICON" Value="certificate3.ico"/>
+
+    <Property Id="DATABASE_LOGON_TYPE">DatabaseIntegratedAuth</Property>
+    <Property Id="USEINTEGRATEDSECURITY" Secure="yes"></Property>
+    <Property Id="LOGON_VALID" Value="0"/>
+    
+    <UIRef Id="WixUI_CustomDialog" />
+  </Product>
+</Wix>

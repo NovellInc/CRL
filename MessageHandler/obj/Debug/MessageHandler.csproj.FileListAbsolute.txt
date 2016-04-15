@@ -1,0 +1,11 @@
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Debug\MessageHandler.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Debug\MessageHandler.pdb
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\obj\Debug\MessageHandler.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\obj\Debug\MessageHandler.pdb
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\obj\Debug\MessageHandler.csprojResolveAssemblyReference.cache
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Debug\Iitrust.BusinessLogic.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Debug\Iitrust.PKI.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Debug\Infotecs.Bazinga.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Debug\Infotecs.Zulu.dll

@@ -1,0 +1,2 @@
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Setup\bin\Release\CRL-Publication.Setup.msi
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Setup\bin\Release\CRL-Publication.Setup.wixpdb

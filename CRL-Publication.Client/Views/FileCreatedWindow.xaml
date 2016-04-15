@@ -1,0 +1,36 @@
+﻿<Window x:Class="Iitrust.CRLPublication.Client.Views.FileCreatedWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize" Topmost="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Label Content="Обнаружен новый файл в системе" HorizontalContentAlignment="Center" Background="CadetBlue" FontWeight="Bold" />
+        
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Имя файла:" DockPanel.Dock="Left" Margin="2" HorizontalAlignment="Right"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding Crl.FileName}" DockPanel.Dock="Right" Margin="2" HorizontalAlignment="Stretch"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Имя CRL:" DockPanel.Dock="Left" Margin="2" HorizontalAlignment="Right"/>
+            <TextBox Grid.Row="1" Grid.Column="1" DockPanel.Dock="Right" Margin="2" Text="{Binding Crl.CrlName, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"/>
+
+        </Grid>
+        <Button Content="Сохранить" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="2" Command="{Binding SaveSettingsCommand}"/>
+    </Grid>
+</Window>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <Binary Id="CRLPublicationCA" SourceFile="$(var.CRL-Publication.CustomAction.TargetDir)CRL-Publication.CustomAction.CA.dll" />
+        <CustomAction Id="VerifySqlConnection" BinaryKey="CRLPublicationCA" DllEntry="VerifySqlConnection" Execute="immediate" Return="check" />
+        <UI>
+            <Dialog Id="SqlConnectionDlg" Width="370" Height="270" Title="!(loc.WelcomeDlg_Title)">
+                <Control Id="ServerNameLabel" Type="Text" X="34" Y="62" Width="56" Height="15" TabSkip="no" Text="&amp;Server name:" />
+                <Control Id="ServerNameEdit" Type="Edit" X="135" Y="60" Width="220" Height="15" Property="DATABASE_SERVER" Text="{80}" />
+                <Control Type="Text" Id="DatabaseNameLabel" Width="76" Height="15" X="34" Y="210" Text="Database name:" TabSkip="no">
+                    <Condition Action="disable"><![CDATA[LOGON_VALID <> 1]]></Condition>
+                    <Condition Action="enable"><![CDATA[LOGON_VALID = 1]]></Condition>
+                </Control>
+                <Control Type="Edit" Id="DatabaseNameEdit" Width="220" Height="15" X="135" Y="208" Property="DATABASE_NAME" Text="{80}">
+                    <Condition Action="disable"><![CDATA[LOGON_VALID <> 1]]></Condition>
+                    <Condition Action="enable"><![CDATA[LOGON_VALID = 1]]></Condition>
+                </Control>
+                <Control Id="DatabaseType" Type="RadioButtonGroup" X="34" Y="82" Width="290" Height="40" Property="DATABASE_LOGON_TYPE">
+                    <RadioButtonGroup Property="DATABASE_LOGON_TYPE">
+                        <RadioButton Value="DatabaseIntegratedAuth" X="0" Y="0" Width="290" Height="16" Text="Trusted (Windows Authentication)" />
+                        <RadioButton Value="DatabaseAccount" X="0" Y="20" Width="290" Height="16" Text="Specify Username and Password (SQL Authentication)" />
+                    </RadioButtonGroup>
+                </Control>
+                <Control Id="UserNameLabel" Type="Text" X="104" Y="126" Width="34" Height="15" TabSkip="no" Text="&amp;User:">
+                    <Condition Action="disable"><![CDATA[DATABASE_LOGON_TYPE <> "DatabaseAccount"]]></Condition>
+                    <Condition Action="enable"><![CDATA[DATABASE_LOGON_TYPE = "DatabaseAccount"]]></Condition>
+                </Control>
+                <Control Id="UserNameEdit" Type="Edit" X="150" Y="124" Width="206" Height="15" Property="DATABASE_USERNAME" Text="{80}">
+                    <Condition Action="disable"><![CDATA[DATABASE_LOGON_TYPE <> "DatabaseAccount"]]></Condition>
+                    <Condition Action="enable"><![CDATA[DATABASE_LOGON_TYPE = "DatabaseAccount"]]></Condition>
+                </Control>
+                <Control Id="PasswordLabel" Type="Text" X="104" Y="148" Width="44" Height="10" TabSkip="no" Text="&amp;Password:">
+                    <Condition Action="disable"><![CDATA[DATABASE_LOGON_TYPE <> "DatabaseAccount"]]></Condition>
+                    <Condition Action="enable"><![CDATA[DATABASE_LOGON_TYPE = "DatabaseAccount"]]></Condition>
+                </Control>
+                <Control Id="PasswordEdit" Type="Edit" X="150" Y="146" Width="206" Height="15" Property="DATABASE_PASSWORD" Text="{80}" Password="yes">
+                    <Condition Action="disable"><![CDATA[DATABASE_LOGON_TYPE <> "DatabaseAccount"]]></Condition>
+                    <Condition Action="enable"><![CDATA[DATABASE_LOGON_TYPE = "DatabaseAccount"]]></Condition>
+                </Control>
+                <Control Id="Test" Type="PushButton" X="34" Y="169" Width="100" Height="17" Text="Test Connection">
+                    <Condition Action="disable"><![CDATA[DATABASE_SERVER = ""]]></Condition>
+                    <Condition Action="enable"><![CDATA[DATABASE_SERVER <> ""]]></Condition>
+                    <Publish Event="DoAction" Value="VerifySqlConnection" Order="1">1</Publish>
+                    <Publish Property="LOGON_VALID" Value="1" Order="2"><![CDATA[LOGON_VALID]]></Publish>
+                    <Publish Property="LOGON_VALID" Value="0" Order="2"><![CDATA[NOT LOGON_VALID]]></Publish>
+                    <Publish Property="DIALOG_MESSAGE" Value="[DIALOG_MESSAGE]" Order="2"><![CDATA[DIALOG_MESSAGE]]></Publish>
+                    <Publish Event="SpawnDialog" Value="TestConnectionDlg" Order="3"><![CDATA[DIALOG_MESSAGE]]></Publish>
+                </Control>
+                <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="!(loc.WixUIBack)" />
+                <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="!(loc.WixUINext)">
+                    <Publish Property="USEINTEGRATEDSECURITY" Value="0"><![CDATA[DATABASE_LOGON_TYPE = "DatabaseAccount"]]></Publish>
+                    <Publish Property="USEINTEGRATEDSECURITY" Value="1"><![CDATA[DATABASE_LOGON_TYPE <> "DatabaseAccount"]]></Publish>
+                    <Condition Action="disable"><![CDATA[LOGON_VALID <> 1 OR DATABASE_NAME = ""]]></Condition>
+                    <Condition Action="enable"><![CDATA[LOGON_VALID = 1 AND DATABASE_NAME <> ""]]></Condition>
+                </Control>
+                <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="!(loc.WixUICancel)">
+                    <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+                </Control>
+                <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="!(loc.CustomizeDlgBannerBitmap)" />
+                <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="374" Height="0" />
+                <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="374" Height="0" />
+                <Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes" Text="SQL Connection" />
+                <Control Id="Title" Type="Text" X="15" Y="6" Width="210" Height="15" Transparent="yes" NoPrefix="yes" Text="Microsoft SQL Server" />
+            </Dialog>
+        
+            <Dialog Id="TestConnectionDlg" Width="260" Height="105" Title="Test Connection Result">
+                <Control Id="Return" Type="PushButton" X="102" Y="77" Width="56" Height="17" Default="yes" Cancel="yes" Text="OK">
+                    <Publish Event="EndDialog" Value="Return">1</Publish>
+                </Control>
+                <Control Id="Text" Type="Text" X="48" Y="15" Width="194" Height="50" Text="[DIALOG_MESSAGE]" />
+                <Control Id="Icon" Type="Icon" X="15" Y="15" Width="24" Height="24" FixedSize="yes" IconSize="32" Text="WixUI_Ico_Exclam" />
+            </Dialog>
+        </UI>
+    </Fragment>
+</Wix>

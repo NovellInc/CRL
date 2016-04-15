@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Variables.wxi?>
+	<Fragment>
+    
+    <DirectoryRef Id="CLIENTFOLDER" DiskId='1'>
+      <Directory Id='ClientDirectory' FileSource='$(var.CRL-Publication.Client.TargetDir)'>
+        <Component Id="ComponentClient" Guid="$(var.ComponentClientGUID)">
+          <File Id='Client' Name='CRL-Publication.Client.exe'/>
+          <File Id='MessageHandlerdllC' Name='MessageHandler.dll'/>
+          <File Id='RabbitMQClientdllC' Name='RabbitMQ.Client.dll'/>
+          <File Id='NewtonsoftJsondllC' Name='Newtonsoft.Json.dll'/>
+          <File Id='IitrustUtilitiesDllC' Name='Iitrust.Utilities.dll'/>
+          <File Id='InfotecsBazingaDll' Name='Infotecs.Bazinga.dll'/>
+          <File Id='AppConfig' Name='CRL-Publication.Client.exe.config'/>
+        </Component>
+      </Directory>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="SERVICEFOLDER" DiskId='1'>
+      <Directory Id='ServiceDirectory' FileSource='$(var.CRL-Publication.Service.TargetDir)'>
+        <Component Id='ComponentService' Guid='$(var.ComponentServiceGUID)'>
+          <File Id='Service' Name='CRL-Publication.Service.exe'/>
+          <File Id='MessageHandlerdllS' Name='MessageHandler.dll'/>
+          <File Id='RabbitMQClientdllS' Name='RabbitMQ.Client.dll'/>
+          <File Id='NewtonsoftJsondllS' Name='Newtonsoft.Json.dll'/>
+          <File Id='CRLPublicationDbDll' Name='CRL-Publication.Db.dll'/>
+          <File Id='CRLPublicationServiceExeConfig' Name='CRL-Publication.Service.exe.config'/>
+          <File Id='EntityFrameworkDll' Name='EntityFramework.dll'/>
+          <File Id='EntityFrameworkSqlServerDll' Name='EntityFramework.SqlServer.dll'/>
+          <File Id='InfotecsBazingaDllS' Name='Infotecs.Bazinga.dll'/>
+          <File Id='NLogDll' Name='NLog.dll'/>
+          <File Id='TopshelfDll' Name='Topshelf.dll'/>
+          <File Id='TopshelfNLogDll' Name='Topshelf.NLog.dll'/>
+          <!--<File Id='' Name=''/>-->
+        </Component>
+      </Directory>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="CRLUPDATEFOLDER" DiskId='1'>
+      <Directory Id='CRLUpdateDirectory' FileSource='$(var.CRL-Publication.CRLUpdate.TargetDir)'>
+        <Component Id='ComponentCRLUpdate' Guid='$(var.ComponentCRLUpdateGUID)'>
+          <File Id='CRLUpdate' Name='CRL-Publication.CRLUpdate.exe'/>
+          <File Id='MessageHandlerdllCRLU' Name='MessageHandler.dll'/>
+          <File Id='RabbitMQClientdllCRLU' Name='RabbitMQ.Client.dll'/>
+          <File Id='NewtonsoftJsondllCRLU' Name='Newtonsoft.Json.dll'/>
+          <File Id='CRLPublicationCRLUpdateExeConfig' Name='CRL-Publication.CRLUpdate.exe.config'/>
+          <File Id='InfotecsBazingaDllCRLU' Name='Infotecs.Bazinga.dll'/>
+          <File Id='NLogDllCRLU' Name='NLog.dll'/>
+          <File Id='TopshelfDllCRLU' Name='Topshelf.dll'/>
+          <File Id='TopshelfNLogDllCRLU' Name='Topshelf.NLog.dll'/>
+        </Component>
+      </Directory>
+    </DirectoryRef>
+    
+	</Fragment>
+</Wix>

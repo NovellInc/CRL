@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CrlModelStoreContainer" CdmEntityContainer="CrlModelContainer">
+    <EntitySetMapping Name="CrlEntities">
+      <EntityTypeMapping TypeName="IsTypeOf(CrlModel.CrlEntity)">
+        <MappingFragment StoreEntitySet="CrlEntities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NextUpdate" ColumnName="NextUpdate" />
+          <ScalarProperty Name="File" ColumnName="File" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageTasks">
+      <EntityTypeMapping TypeName="IsTypeOf(CrlModel.MessageTask)">
+        <MappingFragment StoreEntitySet="MessageTasks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SendingTime" ColumnName="SendingTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventLogs">
+      <EntityTypeMapping TypeName="IsTypeOf(CrlModel.EventLog)">
+        <MappingFragment StoreEntitySet="EventLogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventResult" ColumnName="EventResult" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CrlEntityId" ColumnName="CrlEntityId" />
+          <ScalarProperty Name="PreviousCrlFile" ColumnName="PreviousCrlFile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CrlEntityMessageTask" TypeName="CrlModel.CrlEntityMessageTask" StoreEntitySet="MessageTasks">
+      <EndProperty Name="CrlEntity">
+        <ScalarProperty Name="Id" ColumnName="CrlEntity_Id" />
+      </EndProperty>
+      <EndProperty Name="MessageTask">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

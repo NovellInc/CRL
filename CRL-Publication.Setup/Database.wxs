@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+    xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+    xmlns:sql="http://schemas.microsoft.com/wix/SqlExtension">
+	<Fragment>
+    <Binary Id="CreateTablesBin" SourceFile="$(var.CRL-Publication.Service.TargetDir)CrlModel.edmx.sql"/>    
+    <util:User Id="SQLUser" Name="[DATABASE_USERNAME]" Password="[DATABASE_PASSWORD]" />
+    
+    <DirectoryRef Id="DBFOLDER">
+      <Component Id="SqlComponent.SQLAuthentication" Guid="BD44885B-8860-47F6-8B35-50FC29071EEB" KeyPath="yes">
+        <CreateFolder/>
+        <Condition><![CDATA[USEINTEGRATEDSECURITY <> 1]]></Condition>
+        <sql:SqlDatabase Id="SqlDatabase.SQLAuthentication" Database="[DATABASE_NAME]" Server="[DATABASE_SERVER]" CreateOnInstall="yes" DropOnUninstall="no" User="SQLUser" ContinueOnError="no"/>
+        <sql:SqlScript Id="SqlScriptSQLAuthentication" ExecuteOnInstall="yes" ExecuteOnUninstall="no" BinaryKey="CreateTablesBin" ContinueOnError="no" SqlDb="SqlDatabase.SQLAuthentication"/>
+      </Component>
+
+      <Component Id="SqlComponent.IntegratedAuthentication" Guid="1377C5EB-C714-4A06-BFB1-74FB7A8B7D7D" KeyPath="yes">
+        <CreateFolder/>
+        <Condition>USEINTEGRATEDSECURITY = 1</Condition>
+        <sql:SqlDatabase Id="SqlDatabase.IntegratedAuthentication" Database="[DATABASE_NAME]" Server="[DATABASE_SERVER]" CreateOnInstall="yes" DropOnUninstall="no" ContinueOnError="no"/>
+        <sql:SqlScript Id="SqlScriptIntegratedAuthentication" ExecuteOnInstall="yes" ExecuteOnUninstall="no" BinaryKey="CreateTablesBin" ContinueOnError="no" SqlDb="SqlDatabase.IntegratedAuthentication"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+</Wix>

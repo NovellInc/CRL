@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <?include Variables.wxi?>
+	<Fragment>
+    
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ShortcutClient" Guid="28E3508F-5092-421E-A7AB-FF959F94F49B">
+        <Shortcut Id="ShortcutClient"
+             Name="Client"
+             Description="$(var.ProductName)"
+             Target="[CLIENTFOLDER]CRL-Publication.Client.exe"
+             WorkingDirectory="CLIENTFOLDER"/>
+        <Shortcut Id="UninstallApplicationClient"
+            Name="Uninstall Client for CRL service"
+            Description="Uninstall Client for CRL service"
+            Target="[System64Folder]msiexec.exe"
+            Arguments="/x $(var.ComponentClientGUID)"/>
+        <RemoveFolder Id="ApplicationProgramsFolderClient" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <Condition>SHORTCUT_PROGRAMMENU</Condition>
+      </Component>
+      
+      <Component Id="ShortcutService" Guid="9CC93345-EE8B-4D66-BE51-C57E3482CF30">
+        <Shortcut Id="ShortcutService"
+            Name="Service"
+            Description="$(var.ProductName)"
+            Target="[SERVICEFOLDER]CRL-Publication.Service.exe"
+            WorkingDirectory="SERVICEFOLDER"/>
+        <Shortcut Id="UninstallApplicationService"
+            Name="Uninstall Service"
+            Description="Uninstall Service"
+            Target="[System64Folder]msiexec.exe"
+            Arguments="/x $(var.ComponentServiceGUID)"/>
+        <RemoveFolder Id="ApplicationProgramsFolderService" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <Condition>SHORTCUT_PROGRAMMENU</Condition>
+      </Component>
+
+      <Component Id="ShortcutCRLUpdate" Guid="A64DF397-BF94-4E51-BFEE-539B27B9A24D">
+        <Shortcut Id="ShortcutCRLUpdate"
+             Name="CRL Update"
+             Description="$(var.ProductName)"
+             Target="[CRLUPDATEFOLDER]CRL-Publication.CRLUpdate.exe"
+             WorkingDirectory="CRLUPDATEFOLDER"/>
+        <Shortcut Id="UninstallApplicationCRLUpdate"
+            Name="Uninstall CRL Update service"
+            Description="Uninstall CRL Update service"
+            Target="[System64Folder]msiexec.exe"
+            Arguments="/x $(var.ComponentCRLUpdateGUID)"/>
+        <RemoveFolder Id="ApplicationProgramsFolderCRLUpdate" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <Condition>SHORTCUT_PROGRAMMENU</Condition>
+      </Component>
+    </DirectoryRef>
+
+    
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcutClient" Guid="31FB2952-EB1B-4951-A0A1-26C5B2A76CA1">
+        <Shortcut Id="DesktopShortcutC"
+             Name="Client"
+             Target="[CLIENTFOLDER]CRL-Publication.Client.exe"
+             Directory="DesktopFolder"/>
+
+        <RegistryKey Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="AnyValueName" Value="1" Type="integer" KeyPath="yes"/>
+        </RegistryKey>
+        <Condition>SHORTCUT_DESKTOP</Condition>
+      </Component>
+
+      <Component Id="DesktopShortcutService" Guid="E4FAE00D-1DB7-442F-B0E6-EE46FA2AE904">
+        <Shortcut Id="DesktopShortcutS"
+            Name="Service"
+            Target="[SERVICEFOLDER]CRL-Publication.Service.exe"
+            Directory="DesktopFolder"/>
+
+        <RegistryKey Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="AnyValueName" Value="1" Type="integer" KeyPath="yes"/>
+        </RegistryKey>
+        <Condition>SHORTCUT_DESKTOP</Condition>
+      </Component>
+
+      <Component Id="DesktopShortcutCRLUpdate" Guid="7FB1E899-3FFA-4A12-BB82-2E0DAE050337">
+        <Shortcut Id="DesktopShortcutCRLU"
+            Name="CRL Update"
+            Target="[CRLUPDATEFOLDER]CRL-Publication.CRLUpdate.exe"
+            Directory="DesktopFolder"/>
+
+        <RegistryKey Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="AnyValueName" Value="1" Type="integer" KeyPath="yes"/>
+        </RegistryKey>
+        <Condition>SHORTCUT_DESKTOP</Condition>
+      </Component>
+    </DirectoryRef>
+
+    
+    <DirectoryRef Id="CommonAppDataFolder">
+      <Directory Id="CompanyAppFolder" Name="$(var.CompanyName)">
+        <Directory Id="ProgramAppFolder" Name="$(var.ProductName)">
+          
+          <Directory Id="ClienAppFolder" Name="Client">
+            <Component Id='RemoveClientFolderComponent' Guid='CC7A6669-42B9-462C-98CF-F3AE0AE444E6'>
+              <CreateFolder Directory='ClienAppFolder'/>
+              <RemoveFile Id='RemoveClientFiles' Name='*.*' On='uninstall'/>
+              <RemoveFolder Id='ClienAppFolder' On='uninstall'/>
+            </Component>
+          </Directory>
+          
+          <Directory Id="ServiceAppFolder" Name="Service">
+            <Component Id='RemoveServiceFolderComponent' Guid='BD0610A5-E939-407D-99E0-428C963D0B07'>
+              <CreateFolder Directory='ServiceAppFolder'/>
+              <util:RemoveFolderEx On='uninstall' Property='SERVICEPROGRAMDATA'/>
+            </Component>
+          </Directory>
+          
+          <Directory Id="CRLUpdateAppFolder" Name="CRL Update">
+            <Component Id='RemoveCRLUpdateFolderComponent' Guid='6C62034B-7E1E-4B15-9D6B-DBC4A2217A45'>
+              <CreateFolder Directory='CRLUpdateAppFolder'/>
+              <util:RemoveFolderEx On='uninstall' Property='CRLUPDATEPROGRAMDATA'/>
+            </Component>
+          </Directory>
+          
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+    
+	</Fragment>
+</Wix>

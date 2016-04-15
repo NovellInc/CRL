@@ -1,0 +1,8 @@
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.CustomAction\bin\Debug\CRL-Publication.CustomAction.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.CustomAction\bin\Debug\CRL-Publication.CustomAction.CA.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.CustomAction\bin\Debug\CRL-Publication.CustomAction.pdb
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.CustomAction\bin\Debug\Microsoft.Deployment.WindowsInstaller.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.CustomAction\bin\Debug\Microsoft.Deployment.WindowsInstaller.xml
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.CustomAction\obj\x86\Debug\CRL-Publication.CustomAction.csprojResolveAssemblyReference.cache
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.CustomAction\obj\x86\Debug\CRL-Publication.CustomAction.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.CustomAction\obj\x86\Debug\CRL-Publication.CustomAction.pdb

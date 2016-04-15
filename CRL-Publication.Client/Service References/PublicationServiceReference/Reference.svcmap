@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9bfa25ed-393f-4b42-9976-b88d9edd014c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9090/PublicationService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="mex.xsd" MetadataType="Schema" ID="07869c56-76b9-44e7-b787-1e879352d447" SourceId="1" SourceUrl="http://localhost:9090/AutomaticProcessingRequestsService/mex?xsd=xsd0" />
+    <MetadataFile FileName="mex1.xsd" MetadataType="Schema" ID="a05632a5-fd7b-4584-b85f-6a8d6642050c" SourceId="1" SourceUrl="http://localhost:9090/AutomaticProcessingRequestsService/mex?xsd=xsd1" />
+    <MetadataFile FileName="mex2.xsd" MetadataType="Schema" ID="b2c5b6d6-bd5d-4c5b-a836-a9340be550a9" SourceId="1" SourceUrl="http://localhost:9090/AutomaticProcessingRequestsService/mex?xsd=xsd2" />
+    <MetadataFile FileName="mex21.xsd" MetadataType="Schema" ID="25591b5d-f526-425c-8c33-e7491b0913f2" SourceId="1" SourceUrl="http://localhost:9090/AutomaticProcessingRequestsService/mex?xsd=xsd3" />
+    <MetadataFile FileName="PublicationService.wsdl" MetadataType="Wsdl" ID="e7387aa3-67e6-4efa-b5e1-af8d16f51724" SourceId="1" SourceUrl="http://localhost:9090/AutomaticProcessingRequestsService/mex?wsdl" />
+    <MetadataFile FileName="mex.disco" MetadataType="Disco" ID="e31b65eb-2edf-4d43-a0ce-5000039c9827" SourceId="1" SourceUrl="http://localhost:9090/AutomaticProcessingRequestsService/mex?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

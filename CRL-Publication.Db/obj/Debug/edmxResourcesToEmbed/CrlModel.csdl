@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="CrlModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="CrlModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CrlEntities" EntityType="CrlModel.CrlEntity" />
+    <EntitySet Name="MessageTasks" EntityType="CrlModel.MessageTask" />
+    <AssociationSet Name="CrlEntityMessageTask" Association="CrlModel.CrlEntityMessageTask">
+      <End Role="CrlEntity" EntitySet="CrlEntities" />
+      <End Role="MessageTask" EntitySet="MessageTasks" />
+    </AssociationSet>
+    <EntitySet Name="EventLogs" EntityType="CrlModel.EventLog" />
+    <AssociationSet Name="CrlEntityEventLog" Association="CrlModel.CrlEntityEventLog">
+      <End Role="CrlEntity" EntitySet="CrlEntities" />
+      <End Role="EventLog" EntitySet="EventLogs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CrlEntity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="NextUpdate" Type="DateTime" Nullable="false" />
+    <Property Name="File" Type="String" Nullable="false" />
+    <NavigationProperty Name="MessageTask" Relationship="CrlModel.CrlEntityMessageTask" FromRole="CrlEntity" ToRole="MessageTask" />
+    <NavigationProperty Name="EventLog" Relationship="CrlModel.CrlEntityEventLog" FromRole="CrlEntity" ToRole="EventLog" />
+  </EntityType>
+  <EntityType Name="MessageTask">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="CrlEntity" Relationship="CrlModel.CrlEntityMessageTask" FromRole="MessageTask" ToRole="CrlEntity" />
+    <Property Name="SendingTime" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <Association Name="CrlEntityMessageTask">
+    <End Type="CrlModel.CrlEntity" Role="CrlEntity" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CrlModel.MessageTask" Role="MessageTask" Multiplicity="1" />
+  </Association>
+  <EntityType Name="EventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventDate" Type="DateTime" Nullable="false" />
+    <Property Name="EventResult" Type="CrlModel.EventResult" Nullable="false" />
+    <Property Name="Message" Type="String" Nullable="false" />
+    <NavigationProperty Name="CrlEntity" Relationship="CrlModel.CrlEntityEventLog" FromRole="EventLog" ToRole="CrlEntity" />
+    <Property Name="CrlEntityId" Type="Int32" Nullable="false" />
+    <Property Name="PreviousCrlFile" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="CrlEntityEventLog">
+    <End Type="CrlModel.CrlEntity" Role="CrlEntity" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CrlModel.EventLog" Role="EventLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CrlEntity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventLog">
+        <PropertyRef Name="CrlEntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EnumType Name="EventResult">
+    <Member Name="Add" Value="0" />
+    <Member Name="Update" Value="1" />
+    <Member Name="Error" Value="2" />
+  </EnumType>
+</Schema>

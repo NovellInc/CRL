@@ -1,0 +1,14 @@
+﻿<Window x:Class="Iitrust.CRLPublication.Client.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CRL Клиент"
+        ShowInTaskbar="False"
+        Icon="../Resources/certificate3.ico"
+        Closing="MainWindow_OnClosing"
+        Loaded="MainWindow_OnLoaded"
+        Visibility="Collapsed"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Opacity="0">
+    <Grid/>
+</Window>

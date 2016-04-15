@@ -1,0 +1,20 @@
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Release\MessageHandler.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Release\MessageHandler.pdb
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Release\Iitrust.BusinessLogic.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Release\Iitrust.PKI.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Release\Infotecs.Bazinga.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Release\Infotecs.Zulu.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Release\Newtonsoft.Json.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\bin\Release\Newtonsoft.Json.xml
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\obj\Release\MessageHandler.csprojResolveAssemblyReference.cache
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\obj\Release\MessageHandler.dll
+C:\Users\Omelchuk.Roman\Documents\Visual Studio 2013\Projects\RabbitClientServer\MessageHandler\obj\Release\MessageHandler.pdb
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\MessageHandler\bin\Release\MessageHandler.dll.config
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\MessageHandler\bin\Release\MessageHandler.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\MessageHandler\bin\Release\MessageHandler.pdb
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\MessageHandler\bin\Release\Newtonsoft.Json.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\MessageHandler\bin\Release\RabbitMQ.Client.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\MessageHandler\bin\Release\Newtonsoft.Json.xml
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\MessageHandler\bin\Release\RabbitMQ.Client.xml
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\MessageHandler\obj\Release\MessageHandler.dll
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\MessageHandler\obj\Release\MessageHandler.pdb

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    
+    <Feature Id="FeatureClient" Title="Client" Description="Client for CRL Service" Level="1" ConfigurableDirectory="CLIENTFOLDER">
+      <ComponentRef Id="ComponentClient" />
+      <ComponentRef Id="ShortcutClient" />
+      <ComponentRef Id="DesktopShortcutClient" />
+      <ComponentRef Id="RemoveClientFolderComponent"/>
+    </Feature>
+    
+    <Feature Id="FeatureService" Title="Service" Description="CRL files publication Service" Level="1" ConfigurableDirectory="SERVICEFOLDER">
+      <ComponentRef Id="ComponentService" />
+      <ComponentRef Id="ShortcutService" />
+      <ComponentRef Id="DesktopShortcutService" />
+      <ComponentRef Id="RemoveServiceFolderComponent"/>
+      <Condition Level="0">INSTALLLEVEL=3</Condition>
+      <Feature Id="SqlFeature" Title="Database" Description="Database for CRL Service" Level="1">
+        <ComponentRef Id="SqlComponent.IntegratedAuthentication"/>
+        <ComponentRef Id='SqlComponent.SQLAuthentication' />
+      </Feature>
+    </Feature>
+
+    <Feature Id="FeatureCRLUpdate" Title="CRL Update" Description="CRL update service" Level="1" ConfigurableDirectory="CRLUPDATEFOLDER">
+      <ComponentRef Id="ComponentCRLUpdate" />
+      <ComponentRef Id="ShortcutCRLUpdate" />
+      <ComponentRef Id="DesktopShortcutCRLUpdate" />
+      <ComponentRef Id="RemoveCRLUpdateFolderComponent"/>
+      <Condition Level="0">INSTALLLEVEL=3</Condition>
+    </Feature>
+    
+    <Icon Id="certificate3.ico" SourceFile="certificate3.ico" />
+  </Fragment>
+</Wix>

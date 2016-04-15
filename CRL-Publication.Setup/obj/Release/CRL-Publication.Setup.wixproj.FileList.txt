@@ -1,0 +1,13 @@
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Setup\bin\Release\CRL-Publication.Setup.msi
+B:\MoscowTechDepart\MoscowTechDepart\CRL-Publication\CRL-Publication.Setup\bin\Release\CRL-Publication.Setup.wixpdb
+obj\Release\Database.wixobj
+obj\Release\Features.wixobj
+obj\Release\Files.wixobj
+obj\Release\Product.wixobj
+obj\Release\Shortcuts.wixobj
+obj\Release\WixUI_CustomDialog.wixobj
+obj\Release\WixUI_Shortcuts.wixobj
+obj\Release\WixUI_SqlConnectionDlg.wixobj
+obj\Release\CRL-Publication.Setup.wixproj.BindContentsFileListnull.txt
+obj\Release\CRL-Publication.Setup.wixproj.BindOutputsFileListnull.txt
+obj\Release\CRL-Publication.Setup.wixproj.BindBuiltOutputsFileListnull.txt

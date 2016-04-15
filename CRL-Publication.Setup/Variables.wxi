@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <!--Чтобы обновить приложение, изменить ProductVersion и PackageCode-->
+  <?define ProductName="CRL-Publication" ?>
+  <?define ProductVersion="2.0.0" ?>
+  <?define ProductVersionMinimum="1.0.0" ?>
+  <?define ComponentClientGUID="ACA05674-8F1B-4270-8A08-87428736282E" ?>
+  <?define ComponentServiceGUID="0B5FF87F-5BB1-44AB-B15C-5CDD78143946" ?>
+  <?define ComponentCRLUpdateGUID="9C050C68-58BA-4E55-8507-100F5B29836F" ?>
+  <?define ProductCode="*"?>
+  <!--8EE368E9-F106-4CE6-9C3F-3D74B736E4A7-->
+  <?define PackageCode="*"?>
+    <!--C4CCBB38-B1AD-4D8D-A408-F11471CDD705-->
+  <?define UpgradeCode="7CA93669-7A57-41B5-B872-3302D14287D0"?>
+  <?define Manufacturer="IITRUST"?>
+  <?define CompanyName="IITrust"?>
+</Include>
